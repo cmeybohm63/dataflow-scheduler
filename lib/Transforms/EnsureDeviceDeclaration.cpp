@@ -109,8 +109,8 @@ struct EnsureDeviceDeclarationPass
   using EnsureDeviceDeclarationPassBase::EnsureDeviceDeclarationPassBase;
   void runOnOperation() override {
     if (DisableThisPass) return;
-    if (mlir::failed(
-            injectDevice(getOperation(), deviceFileName.getValue(), deviceName.getValue()))) {
+    if (mlir::failed(injectDevice(getOperation(), deviceFileName.getValue(),
+                                  deviceName.getValue()))) {
       signalPassFailure();
       return;
     }
